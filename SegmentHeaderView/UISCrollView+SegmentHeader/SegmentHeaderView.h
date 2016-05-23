@@ -10,4 +10,7 @@
 
 @interface SegmentHeaderView : UIView
 
+@property (strong, nonatomic) UISegmentedControl *segmentControl;
+@property (nonatomic, assign) BOOL isShowSegment;
+
 @end

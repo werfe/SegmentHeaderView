@@ -36,7 +36,7 @@ static char kDefaultInsetsKey;
         [self.segmentHeaderView setHidden:!enabledSegment];
     }
     objc_setAssociatedObject(self, &kenableSegmentKey, @(enabledSegment), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.defaultInsets = self.contentInset;
+    self.defaultInset = self.contentInset;
 }
 
 
@@ -77,8 +77,8 @@ static char kDefaultInsetsKey;
         return UIEdgeInsetsZero;
     }
 }
--(void)setDefaultInsets:(UIEdgeInsets)defaultInsets{
-    NSValue *insetsValue = [NSValue valueWithUIEdgeInsets:defaultInsets];
+-(void)setDefaultInset:(UIEdgeInsets)defaultInset{
+    NSValue *insetsValue = [NSValue valueWithUIEdgeInsets:defaultInset];
     objc_setAssociatedObject(self, &kDefaultInsetsKey, insetsValue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -86,9 +86,6 @@ static char kDefaultInsetsKey;
 #pragma mark - Public Method
 - (void)scrollViewDidScroll:(UIScrollView*)scrollView
 {
-//    CGFloat offset = self.segmentHeaderView.frame.size.height + self.defaultInset.top;
-//    CGFloat topOffset = [self topContentOffset];
-//    NSLog(@"Offset = %f",topOffset);
     [self checkToShowSegment];
 }
 
@@ -96,24 +93,15 @@ static char kDefaultInsetsKey;
 {
     CGFloat offset = self.segmentHeaderView.frame.size.height + self.defaultInset.top;
     CGFloat topOffset = [self topContentOffset];
-    if (topOffset <= -offset && self.enabledSegment) {
+    if (topOffset <= -offset-20 && self.enabledSegment) {
         //Show the segment
         if (!self.isShowingSegment) {
             if(!self.segmentHeaderView.isShowSegment){
                 NSLog(@"Show segment");
                 self.segmentHeaderView.isShowSegment = YES;
                 self.isShowingSegment = YES;
-                NSLog(@"OFFest = %f",self.contentOffset.y);
                 UIEdgeInsets inset = UIEdgeInsetsMake(self.segmentHeaderView.frame.size.height+self.defaultInset.top, self.defaultInset.left, self.defaultInset.bottom, self.defaultInset.right);
-                CGPoint contentOffset = self.contentOffset;
-//                [UIView animateWithDuration:0.2f animations:^{
-                    [self setContentInset:inset];
-                NSLog(@"OFFest 2 = %f",self.contentOffset.y);
-                    self.contentOffset = contentOffset;
-                NSLog(@"OFFest 3 = %f",self.contentOffset.y);
-//                } completion:^(BOOL finished) {
-//                }];
-
+                [self setContentInset:inset];
             }
         }
         
@@ -124,11 +112,7 @@ static char kDefaultInsetsKey;
             self.segmentHeaderView.isShowSegment = NO;
             self.isShowingSegment = NO;
             NSLog(@"Hide segment");
-//            [UIView animateWithDuration:0.5 animations:^{
                 [self setContentInset:self.defaultInset];
-//            } completion:^(BOOL finished) {
-//                
-//            }];
         }
 
         
@@ -140,11 +124,5 @@ static char kDefaultInsetsKey;
 {
     return self.contentOffset.y;
 }
-//-(void)setContentSize:(CGSize)contentSize
-//{
-//    [super setContentSize:contentSize];
-//    [self relocatePullToRefreshView];
-//}
-
 
 @end

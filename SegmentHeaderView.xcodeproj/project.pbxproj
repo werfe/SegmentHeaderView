@@ -15,6 +15,8 @@
 		0FB308C91CEAFF6800574CE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB308C71CEAFF6800574CE5 /* LaunchScreen.storyboard */; };
 		0FB308D41CEAFF6800574CE5 /* SegmentHeaderViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB308D31CEAFF6800574CE5 /* SegmentHeaderViewTests.m */; };
 		0FB308DF1CEAFF6800574CE5 /* SegmentHeaderViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB308DE1CEAFF6800574CE5 /* SegmentHeaderViewUITests.m */; };
+		0FF6FD7F1CF2EDF700E4937A /* SegmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6FD7C1CF2EDF700E4937A /* SegmentHeaderView.m */; };
+		0FF6FD801CF2EDF700E4937A /* UIScrollView+SegmentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6FD7E1CF2EDF700E4937A /* UIScrollView+SegmentHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		0FB308DA1CEAFF6800574CE5 /* SegmentHeaderViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegmentHeaderViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB308DE1CEAFF6800574CE5 /* SegmentHeaderViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentHeaderViewUITests.m; sourceTree = "<group>"; };
 		0FB308E01CEAFF6800574CE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF6FD7B1CF2EDF700E4937A /* SegmentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentHeaderView.h; sourceTree = "<group>"; };
+		0FF6FD7C1CF2EDF700E4937A /* SegmentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentHeaderView.m; sourceTree = "<group>"; };
+		0FF6FD7D1CF2EDF700E4937A /* UIScrollView+SegmentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SegmentHeader.h"; sourceTree = "<group>"; };
+		0FF6FD7E1CF2EDF700E4937A /* UIScrollView+SegmentHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SegmentHeader.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		0FB308B81CEAFF6800574CE5 /* SegmentHeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				0FF6FD7A1CF2EDF700E4937A /* UISCrollView+SegmentHeader */,
 				0FB308BC1CEAFF6800574CE5 /* AppDelegate.h */,
 				0FB308BD1CEAFF6800574CE5 /* AppDelegate.m */,
 				0FB308BF1CEAFF6800574CE5 /* ViewController.h */,
@@ -138,6 +145,17 @@
 				0FB308E01CEAFF6800574CE5 /* Info.plist */,
 			);
 			path = SegmentHeaderViewUITests;
+			sourceTree = "<group>";
+		};
+		0FF6FD7A1CF2EDF700E4937A /* UISCrollView+SegmentHeader */ = {
+			isa = PBXGroup;
+			children = (
+				0FF6FD7B1CF2EDF700E4937A /* SegmentHeaderView.h */,
+				0FF6FD7C1CF2EDF700E4937A /* SegmentHeaderView.m */,
+				0FF6FD7D1CF2EDF700E4937A /* UIScrollView+SegmentHeader.h */,
+				0FF6FD7E1CF2EDF700E4937A /* UIScrollView+SegmentHeader.m */,
+			);
+			path = "UISCrollView+SegmentHeader";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FB308C11CEAFF6800574CE5 /* ViewController.m in Sources */,
+				0FF6FD7F1CF2EDF700E4937A /* SegmentHeaderView.m in Sources */,
+				0FF6FD801CF2EDF700E4937A /* UIScrollView+SegmentHeader.m in Sources */,
 				0FB308BE1CEAFF6800574CE5 /* AppDelegate.m in Sources */,
 				0FB308BB1CEAFF6800574CE5 /* main.m in Sources */,
 			);
@@ -414,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SegmentHeaderView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Company.SegmentHeaderView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SegmentHeaderView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Company.SegmentHeaderView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +518,7 @@
 				0FB308E51CEAFF6800574CE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FB308E61CEAFF6800574CE5 /* Build configuration list for PBXNativeTarget "SegmentHeaderViewTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +527,7 @@
 				0FB308E81CEAFF6800574CE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FB308E91CEAFF6800574CE5 /* Build configuration list for PBXNativeTarget "SegmentHeaderViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +536,7 @@
 				0FB308EB1CEAFF6800574CE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
